@@ -242,4 +242,12 @@ with gr.Blocks(title="Credit Risk & Score Assessment", theme=gr.themes.Soft()) a
         )
 
 if __name__=="__main__":
-    demo.launch()
+    # Get the port from environment variable (Render sets this automatically)
+    port = int(os.environ.get('PORT', 7860))
+    
+    # Launch the app with the specified host and port
+    demo.launch(
+        server_name='0.0.0.0',  # Required for Render
+        server_port=port,       # Use the port from environment variable
+        share=False            # Don't create a public share link
+    )
